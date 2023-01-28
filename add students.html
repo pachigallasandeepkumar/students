@@ -1,0 +1,47 @@
+{% extends 'navbar.html' %}
+{% block content %}
+
+<form action="adddata" method="post">
+    {% csrf_token %}
+    <h3 align="center"><u>*****Add Details*****</u></h3>
+    <table border="2"  align="center" style=" background-color:aqua">
+   <tr>
+            <td> Name:</td>
+            <td>
+                <input type="text" name="txtnm">
+            </td>
+   </tr>
+         <tr>
+            <td> Age:</td>
+            <td>
+                <input type="number" name="txtag">
+            </td>
+   </tr> <tr>
+            <td> Phno:</td>
+            <td>
+                <input type="number" name="txtph">
+            </td>
+   </tr> <tr>
+            <td> City:</td>
+            <td>
+                <select name="ddlCity">
+                    {% for i in City_data %}
+                       <option>  {{ i.City_Name }} </option>
+                    {% endfor %}
+                </select>
+            </td>
+   </tr> <tr>
+            <td> Course:</td>
+            <td>
+               <select name="ddlCourse">
+                    {% for i in Course_data %}
+                       <option>  {{ i.Course_Name }} </option>
+                    {% endfor %}
+               </select>
+            </td>
+
+   <tr><td><input type="submit" name="txtsu"> </td></tr>
+    </table>
+</form>
+
+{% endblock %}
